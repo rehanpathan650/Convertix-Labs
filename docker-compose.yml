@@ -1,0 +1,15 @@
+services:
+  server:
+    build: ./server
+    env_file: .env            # DATABASE_URL (Neon), JWT_SECRET, ADMIN_* …
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
+
+  client:
+    build: ./client
+    ports:
+      - "8080:80"             # open http://localhost:8080
+    depends_on:
+      - server
+    restart: unless-stopped
