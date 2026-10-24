@@ -2,6 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import { AuthProvider } from "./lib/auth.jsx";
 import Landing from "./pages/Landing.jsx";
 import { Login, Signup } from "./pages/Auth.jsx";
@@ -20,6 +21,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Analytics />
+        <SpeedInsights />
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
